@@ -101,6 +101,9 @@ class EventHandler
 
             $seamless = $config->get('handleSeamlessly');
 
+            // report any error that might have been triggered before starting
+            self::$instance->reportLastError();
+
             // errors - handle them all!
             set_error_handler(array(self::$instance, 'onError'), E_ALL);
 
@@ -130,9 +133,6 @@ class EventHandler
 
             // fatal errors
             register_shutdown_function(array(self::$instance, 'onShutdown'));
-
-            // report any error that might have been triggered before starting
-            self::$instance->reportLastError();
         }
 
         return self::$instance;
