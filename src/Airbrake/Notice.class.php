@@ -100,11 +100,11 @@ class Notice extends Record
         // basic options
         $result = array(
             'message'    => static::sanitizeMessage($this->errorMessage, $configuration),
-            'timestamp'  => date('c', $timestamp),
+            'timestamp'  => date('"Y-m-d\TH:i:s"', $timestamp),
             'level'      => $this->level,
             'logger'     => Version::NAME,
             'platform'   => $configuration->platform,
-            'servername' => gethostname()
+            'server_name' => gethostname()
         );
 
         // tags and extras
