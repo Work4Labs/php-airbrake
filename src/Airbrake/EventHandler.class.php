@@ -182,7 +182,7 @@ class EventHandler
         catch (InvalidHashException $e) {}
 
         // This will catch silenced @ function calls and keep them quiet.
-        if (ini_get('error_reporting') == 0) {
+        if (error_reporting() == 0) {
             return $result;
         }
 
