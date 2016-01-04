@@ -264,7 +264,7 @@ class Notice extends Record
         }
 
         if (strlen($result) > $maxLength) {
-            $result = substr($result, 0, self::MAX_SINGLE_ARG_STRING_LENGTH);
+            $result = mb_strcut($result, 0, self::MAX_SINGLE_ARG_STRING_LENGTH);
             $result .= ' ... [ARG TRUNCATED]';
         }
         return $result;
