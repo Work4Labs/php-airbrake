@@ -108,7 +108,8 @@ class EventHandler
             set_error_handler(array(self::$instance, 'onError'), E_ALL);
 
             // exceptions
-            self::$previousExceptionHandler = set_exception_handler(function(\Exception $exception) use($config)
+            // Note PHP 7.0: exception handlers can receive Throwable, not just Exception instances
+            self::$previousExceptionHandler = set_exception_handler(function($exception) use($config)
             {
                 // log into airbrake
                 call_user_func_array(
