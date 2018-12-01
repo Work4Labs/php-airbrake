@@ -83,7 +83,7 @@ class Client
      *
      * @return string
      */
-    public function notifyOnException(\Exception $exception,
+    public function notifyOnException($exception,
         $additionalExtra = null,
         $additionalTags = null
     )

@@ -216,7 +216,7 @@ class EventHandler
      * @param[optional] Configuration $config = null
      * @return bool
      */
-    public function onException(\Exception $exception, Configuration $config = null)
+    public function onException($exception, Configuration $config = null)
     {
         // prevent infinite loops
         if (!$this->incrementStackTraceDepth()) {

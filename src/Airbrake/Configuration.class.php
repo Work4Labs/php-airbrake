@@ -113,7 +113,7 @@ class Configuration extends Record
         }
     }
 
-    public function notifyUpperLayer(\Exception $e, $rethrowIfNoCallback = false, $secondaryNotification = false)
+    public function notifyUpperLayer($e, $rethrowIfNoCallback = false, $secondaryNotification = false)
     {
         if ($e instanceof AirbrakeException) {
             $airbrakeException = $e;
